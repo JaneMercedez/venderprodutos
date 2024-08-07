@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Always For You</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .justified-text {
+            text-align: justify;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #e2e2e2;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        /* Products */
+        .products {
+            padding: 2rem 0;
+        }
+
+        .products .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+
+        .products h2 {
+            margin-bottom: 1rem;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .product {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            width: calc(33.333% - 2rem);
+            cursor: pointer;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            margin: 0.5rem 0;
+        }
+
+        .product .price {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .product button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .product button:hover {
+            background: #555;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .product {
+                width: calc(50% - 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product {
+                width: calc(100% - 2rem);
+            }
+
+            .hero h2, .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Products Always For You</h1>
+            <nav>
+                <!-- <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul> -->
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Be very welcome!</h2>
+                <p>We are here to serve you</p>
+            </div>
+        </section>
+
+        <section class="products">
+            <div class="container">
+                <!--<h2>Our Products</h2> -->
+                <div class="product-grid">
+                    <div class="product" onclick="openModal('modal1')">
+                        <img src="Bio1.jpg" alt="Product 1">
+                        <h3>Joint Genesis</h3>
+                    </div>
+                    <!-- <div class="product" onclick="openModal('modal2')">
+                        <img src="https://via.placeholder.com/300" alt="Product 2">
+                        <h3>Product 2</h3>
+                        <p>Click here to find out more.</p>
+                        <p class="price">$149.99</p>
+                        <button>Buy</button>
+                    </div>
+                    <!-- Add more products here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Products Always For You. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <img src="Bio1.jpg" alt="Product 1">
+            <h2>Joint Genesis</h2>
+            
+            <a href="https://hop.clickbank.net/?affiliate=basiliomon&vendor=jointgen&v=cb">Click here to find out more and buy</a>
+            <div class="justified-text">
+                        <p>Joint Genesis is a brand-new, doctor-formulated joint health supplement born out of Ivy League research, and backed by real-world results.
+
+Joint Genesis's proprietary formula is the first in the world to combine four clinically-proven joint-supporting nutrients with Mobilee®, an advanced and patented ingredient shown to multiply crucial hyaluronan molecules in the synovial fluid by a factor of 10.
+
+This unique and cutting-edge ingredient blend supports joint health in a newly-discovered way: by rehydrating and thickening up the naturally jello-like synovial fluid in our joints.
+
+Ivy League research and dozens of clinical studies have now proven, when you rehydrate and thicken up your synovial fluid, you promote:
+
+
+Youthful mobility and flexibility
+
+
+A healthy inflammatory response
+
+
+Optimum joint comfort</p>
+            
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <img src="https://via.placeholder.com/300" alt="Product 2">
+            <h2>Product 2</h2>
+            <p>Detailed information about Product 2.</p>
+            <a href="http://example.com/product2">Find out more</a>
+        </div>
+    </div>
+
+    <script>
+        // Function to open modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        // Function to close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Close the modal when the user clicks anywhere outside of it
+        window.onclick = function(event) {
+            var modals = document.getElementsByClassName('modal');
+            for (var i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
